@@ -1,0 +1,62 @@
+import java.util.Random;
+
+public class Program {
+
+	public static void main(String[] args) {
+		int n = 10;
+		int aux = 0;
+		int maior = 0;
+		int menor = 100;
+		int M = 0;
+		int m = 0;
+		int Inverse = 0;
+		int a[]  = new int [n];
+		
+		Random r = new Random();
+		
+		for (int i = 0; i < n; i++) {
+			a[i] = r.nextInt(100);
+			System.out.println(i + ":" + a[i]);
+		}
+		
+		for (int e = 0; e < n; e++) {
+			if (a[e] > maior) {
+				maior = a[e];
+				M = e;
+			}
+			
+		}
+		
+		System.out.println("\n" + M + ":" + maior);
+		
+		for (int e = 0; e < n; e++) {
+			if (a[e] < menor) {
+				menor = a[e];
+				m = e;
+			}
+		}
+		
+		System.out.println("\n" + m + ":" + menor);
+		
+		aux = a[M];
+		a[M] = a[m];
+		a[m] = aux;
+		
+		for (int i = 0; i < n; i++) {
+			System.out.print(a[i]);
+		}
+		
+		for (int i = 0; i < n; i++) {
+			for (int ba = 0; ba < i; ba++) {
+			Inverse = a[i];
+			a[i] = a[ba];
+			a[ba] = Inverse;
+			}
+		}
+		
+		for (int i = 0; i < n; i++) {
+			System.out.println(a[i]);
+		}
+	}
+
+}
